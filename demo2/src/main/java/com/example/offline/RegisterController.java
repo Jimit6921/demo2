@@ -6,13 +6,16 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class RegisterController {
 
-    // 👉 Show register page
-    @GetMapping("/register")
-    public String showRegisterPage() {
-        return "register"; // loads register.html
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/register";
     }
 
-    // 👉 Handle form submit
+    @GetMapping("/register")
+    public String showRegisterPage() {
+        return "register";
+    }
+
     @PostMapping("/register")
     @ResponseBody
     public String register(User user) {
